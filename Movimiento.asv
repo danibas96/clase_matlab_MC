@@ -3,12 +3,14 @@ clear
 %importar lamemoria compartida
 loadlibrary('smClient64.dll','./smClient.h')
 %,crear desde el panel,  
-%abrir
-calllib('smClient64','openMemory','MemoEnteros',1)
-%escribir en la memoria
-x=1;
-y=2;
+%abrir memoria par movimiento 
+calllib('smClient64','openMemory','Movimiento',2)%2 tipo flotante
+%abrimos la memoria para recuperar posiciones
+calllib('smClient64','openMemory','Posiciones',2)
+
+movimiento_x=5;
 while true
+ %escribir en la memoriay leer el movimiento
 calllib('smClient64','setInt','MemoEnteros',0,x)
 calllib('smClient64','setInt','MemoEnteros',1,y)
 x=x+1;
